@@ -2,7 +2,7 @@ name: Build and Push Docker Image
 
 on:
   push:
-    branches: [ "ghTest" ]   # o "main" si quieres la rama principal
+    branches: [ "ghTest" ]  # Cambia a "main" si quieres la rama principal
 
 jobs:
   docker:
@@ -19,7 +19,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Construir imagen Docker
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/hola-mundo .
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/hola-mundo ./docker
 
       - name: Subir imagen a Docker Hub
         run: docker push ${{ secrets.DOCKER_USERNAME }}/hola-mundo
